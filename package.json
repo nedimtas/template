@@ -1,3 +1,26 @@
 {
-
+	"name": "template",
+	"version": "1.0.0",
+	"main": "app.js",
+	"private": true,
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/nedimtas/template.git"
+	},
+	"author": "<nnedimtas@gmail.com>",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/nedimtas/template/issues"
+	},
+	"homepage": "https://github.com/nedimtas/template#readme",
+	"dependencies": {
+		"express": "^4.16.4",
+		"express-favicon": "^2.0.1",
+		"nodemon": "^1.18.8",
+		"nunjucks": "^3.1.4"
+	},
+	"devDependencies": {},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	}
 }
