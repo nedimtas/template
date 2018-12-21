@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Template Test</title>
+  <style>
+    strong {
+        font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Hello World!</h1>
+  <p><strong>Adı:</strong> {{ firstName }}</p>
+  <p><strong>Soyad:</strong> {{ lastName }}</p>
+  <p><strong>Mail:</strong> {{ eMail }}</p> 
+
+  <ul>
+    {% for ingredient, amount in food %}
+      <li>Use {{ amount }} of {{ ingredient }}</li>
+      {% else %}
+        <li>This would display if the 'item' collection were empty</li>
+    {% endfor %}
+  </ul>
+
+  <ul>
+    {% for item in items %}
+      <li id="{{item.id}}">{{ item.title }}</li>
+    {% else %}
+      <li>This would display if the 'item' collection were empty</li>
+    {% endfor %}
+  </ul>
+
+</ul>
+</body>
+</html>

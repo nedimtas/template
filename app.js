@@ -1,3 +1,8 @@
+/*
+    author Nedim Taş
+*/
+
+
 var express = require( 'express' ),
     app = express(),
     favicon = require('express-favicon'),
@@ -26,9 +31,27 @@ app.get('/', function(req, res) {
     var data = {
         firstName: 'Courtier',
         lastName: 'Stone',
-        eMail: 'courtierstone@gmail.com'
+        eMail: 'courtierstone@gmail.com',
+        food: {
+            'ketchup': '5 tbsp',
+            'mustard': '1 tbsp',
+            'pickle': '0 tbsp'
+        },
+        items: [
+            { title: "foo", id: 1 },
+            { title: "bar", id: 2},
+            { title: "stone", id: 3},
+            { title: "rock", id: 4}
+        ]
     };
-    return res.render('index.html', data);
+    return res.render('index.njk', data);
+
+    // $.getJSON('/data/data.json', function (result) {
+    //     nunjucks.render('index.html', { result : result }, function (err, res) {
+    //         return res.render('index.html');
+    //     });
+    // });
+    
 });
 
 
