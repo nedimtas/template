@@ -11,6 +11,8 @@ var express = require( 'express' ),
 // Define port to run server on
 var port = process.env.PORT || 8080;
 
+//Favicon
+app.use(favicon(__dirname + '/favicon.ico'));
 
 // Configure Nunjucks
 var _templates = process.env.NODE_PATH ? process.env.NODE_PATH + '/' : '/';
@@ -21,15 +23,9 @@ var env = nunjucks.configure( 'views', {
     express: app
 });
 
-
 env.addFilter('findContent', function(arr, name) {
     return arr.find(item => item == name);
  })
-
-
-//Favicon
-app.use(favicon(__dirname + '/favicon.ico'));
-
 
 // Respond to all GET requests by rendering relevant page using Nunjucks
 app.get('/', function(req, res) {
@@ -58,7 +54,6 @@ app.get('/', function(req, res) {
     // });
     
 });
-
 
 // Start server
 app.listen(port);
