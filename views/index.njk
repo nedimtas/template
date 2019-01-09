@@ -13,10 +13,58 @@
 </head>
 <body>
   <h1>Hello World!</h1>
+
+  {# dinamik content custom filters #}
+  <div>
+    {% set bla = [1,2,3,4,5,6,7,8] | findContent(7) %}
+    {% if bla %}
+      {{ bla }}
+    {% else %}
+        not!
+    {% endif %}
+    
+  </div>
+
+  {# batch #}
+  <div style="padding: 10px; border: 1px solid red;margin:5px 0;">
+    {% set poo = [1,2,3,4,5,6,7,8] %}
+    {% for item in poo | batch(2) %}
+        /{% for poo in item %}
+          {{ poo }}
+        {% endfor %}
+    {% endfor %}
+  </div>
+
+  {# slice #}
+  {% set arr = [1,2,3,4,5,6,7,8,9,10,11,12] %}
+
+  <div class="columwrapper">
+    {%- for too in arr | slice(4) %}
+      <ul class="column-{{ loop.index }}">
+      {%- for item in too %}
+        <li>{{ item }}</li>
+      {%- endfor %}
+      </ul>
+    {%- endfor %}
+  </div>
+
+
+  {# if else if kullanımı #}
+  {% if foodd %}
+    {{ food.ketchup }}
+  {% elif food.ketchup %}
+    I am good food!
+  {% else %}
+    I am a not good!
+  {% endif %}
+
+  {# variable kullanımı #}
   <p><strong>Adı:</strong> {{ firstName }}</p>
   <p><strong>Soyad:</strong> {{ lastName }}</p>
   <p><strong>Mail:</strong> {{ eMail }}</p> 
 
+
+  {# for kullanımı #}
   <ul>
     {% for ingredient, amount in food %}
       <li>Use {{ amount }} of {{ ingredient }}</li>

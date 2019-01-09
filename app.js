@@ -1,5 +1,5 @@
 /*
-    author Nedim Taş
+    author Gri Creative
 */
 
 
@@ -14,12 +14,17 @@ var port = process.env.PORT || 8080;
 
 // Configure Nunjucks
 var _templates = process.env.NODE_PATH ? process.env.NODE_PATH + '/' : '/';
-nunjucks.configure( 'views', {
+var env = nunjucks.configure( 'views', {
     autoescape: true,
     cache: false,
     watch: true,
     express: app
 });
+
+
+env.addFilter('findContent', function(arr, name) {
+    return arr.find(item => item == name);
+ })
 
 
 //Favicon
